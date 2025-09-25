@@ -1,0 +1,261 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Light Theme - Exact Color Specification */
+    --background: 0 0% 100%;
+    /* #FFFFFF */
+    --foreground: 224 71% 4%;
+    /* #111827 */
+
+    --card: 0 0% 100%;
+    /* #FFFFFF */
+    --card-foreground: 224 71% 4%;
+    /* #111827 */
+
+    --popover: 0 0% 100%;
+    /* #FFFFFF */
+    --popover-foreground: 224 71% 4%;
+    /* #111827 */
+
+    /* Primary Purple System */
+    --primary: 258 90% 66%;
+    /* #7C3AED */
+    --primary-foreground: 0 0% 100%;
+    /* White text */
+
+    --secondary: 220 14% 98%;
+    /* #F9FAFB */
+    --secondary-foreground: 224 71% 4%;
+    /* #111827 */
+
+    --muted: 210 20% 97%;
+    /* #F3F4F6 */
+    --muted-foreground: 213 13% 47%;
+    /* #6B7280 */
+
+    --accent: 258 90% 76%;
+    /* #A78BFA */
+    --accent-foreground: 224 71% 4%;
+    /* #111827 */
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    /* #E5E7EB */
+    --input: 0 0% 100%;
+    /* #FFFFFF */
+    --ring: 258 90% 66%;
+    /* #7C3AED focus */
+
+    /* Chat-specific Design Tokens */
+    --chat-user-bg: linear-gradient(135deg, hsl(253 71% 96%), hsl(253 71% 94%));
+    /* #EDE9FE → #DDD6FE */
+    --chat-user-foreground: 224 71% 4%;
+    /* #111827 */
+    --chat-bot-bg: 210 20% 97%;
+    /* #F3F4F6 */
+    --chat-bot-foreground: 224 71% 4%;
+    /* #111827 */
+    --chat-bot-accent: 258 90% 66%;
+    /* #7C3AED left border */
+    --chat-input-bg: 0 0% 100%;
+    /* #FFFFFF */
+    --chat-input-border: 220 13% 85%;
+    /* #D1D5DB */
+    --chat-input-placeholder: 220 9% 67%;
+    /* #9CA3AF */
+
+    /* Header/Navbar */
+    --header-bg: 0 0% 100%;
+    /* White */
+    --header-title: 224 71% 4%;
+    /* #111827 */
+    --header-subtitle: 213 13% 47%;
+    /* #6B7280 */
+    --header-accent: 258 90% 76%;
+    /* #A78BFA */
+
+    /* Sidebar */
+    --sidebar-bg: 252 100% 98%;
+    /* #F5F3FF */
+    --sidebar-active: linear-gradient(135deg, hsl(258 90% 66%), hsl(258 90% 76%));
+    /* #7C3AED → #A78BFA */
+    --sidebar-inactive: 220 9% 22%;
+    /* #374151 */
+    --sidebar-hover: 253 71% 96%;
+    /* #EDE9FE */
+
+    /* Button Gradients */
+    --button-primary: purple-950;
+    /* #6366F1 → #8B5CF6 */
+    --button-secondary-bg: 0 0% 100%;
+    --button-secondary-border: 258 90% 66%;
+    /* #7C3AED */
+    --button-secondary-text: 258 90% 66%;
+    /* #7C3AED */
+
+    /* Footer */
+    --footer-bg: 220 14% 98%;
+    /* #F9FAFB */
+    --footer-text: 213 13% 47%;
+    /* #6B7280 */
+
+    /* Beautiful gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(240 100% 98%), hsl(0 0% 99%));
+    /* #F0F4FF → #FDFDFE */
+    --gradient-primary: var(--button-primary);
+    --gradient-user: var(--chat-user-bg);
+    --gradient-glow: 0 4px 20px -4px hsl(258 90% 66% / 0.25);
+
+    /* Smooth transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark Theme - Complementary to Light */
+    --background: 224 71% 4%;
+    /* Very dark blue-gray */
+    --foreground: 220 14% 98%;
+    /* Almost white */
+
+    --card: 220 13% 8%;
+    /* Dark card background */
+    --card-foreground: 220 14% 98%;
+
+    --popover: 220 13% 8%;
+    --popover-foreground: 220 14% 98%;
+
+    /* Dark Purple System */
+    --primary: 258 90% 76%;
+    /* Lighter purple for dark theme */
+    --primary-foreground: 224 71% 4%;
+
+    --secondary: 220 13% 12%;
+    /* Darker secondary */
+    --secondary-foreground: 220 14% 98%;
+
+    --muted: 220 13% 15%;
+    /* Dark muted */
+    --muted-foreground: 213 13% 67%;
+    /* Lighter muted text */
+
+    --accent: 258 90% 84%;
+    /* Even lighter accent */
+    --accent-foreground: 224 71% 4%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 220 14% 98%;
+
+    --border: 220 13% 18%;
+    /* Dark borders */
+    --input: 220 13% 8%;
+    /* Dark input */
+    --ring: 258 90% 76%;
+    /* Light purple focus */
+
+    /* Dark Chat-specific Design Tokens */
+    --chat-user-bg: linear-gradient(135deg, hsl(258 90% 66%), hsl(258 90% 76%));
+    /* Purple gradient */
+    --chat-user-foreground: 0 0% 100%;
+    /* White text on purple */
+    --chat-bot-bg: 220 13% 15%;
+    /* Dark gray */
+    --chat-bot-foreground: 220 14% 98%;
+    /* Light text */
+    --chat-bot-accent: 258 90% 76%;
+    /* Light purple accent */
+    --chat-input-bg: 220 13% 8%;
+    /* Dark input */
+    --chat-input-border: 220 13% 25%;
+    /* Lighter dark border */
+    --chat-input-placeholder: 220 9% 50%;
+    /* Medium gray placeholder */
+
+    /* Dark Header/Navbar */
+    --header-bg: 220 13% 8%;
+    /* Dark header */
+    --header-title: 220 14% 98%;
+    /* Light title */
+    --header-subtitle: 213 13% 67%;
+    /* Medium light subtitle */
+    --header-accent: 258 90% 84%;
+    /* Light purple accent */
+
+    /* Dark Sidebar */
+    --sidebar-bg: 220 13% 6%;
+    /* Very dark sidebar */
+    --sidebar-active: linear-gradient(135deg, hsl(258 90% 76%), hsl(258 90% 84%));
+    /* Light purple gradient */
+    --sidebar-inactive: 213 13% 67%;
+    /* Light gray inactive */
+    --sidebar-hover: 220 13% 18%;
+    /* Dark hover */
+
+    /* Dark Button Gradients */
+    --button-primary: purple-100;
+    /* Light purple gradient */
+    --button-secondary-bg: 220 13% 8%;
+    --button-secondary-border: 258 90% 76%;
+    /* Light purple border */
+    --button-secondary-text: 258 90% 84%;
+    /* Light purple text */
+
+    /* Dark Footer */
+    --footer-bg: 220 13% 6%;
+    /* Very dark footer */
+    --footer-text: 213 13% 67%;
+    /* Light footer text */
+
+    /* Dark gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(224 71% 6%), hsl(220 13% 8%));
+    /* Dark hero gradient */
+    --gradient-primary: var(--button-primary);
+    --gradient-user: var(--chat-user-bg);
+    --gradient-glow: 0 8px 32px -8px hsl(258 90% 76% / 0.4);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
