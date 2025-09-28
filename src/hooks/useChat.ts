@@ -2,7 +2,7 @@ import { useState, useCallback } from "react";
 import { type Message } from "@/components/ChatMessage";
 import { toast } from "@/hooks/use-toast";
 
-const CHAT_WEBHOOK_URL = "http://localhost:5678/webhook/97a5656e-b291-4b2a-a1c9-98329ae672b6/chat";
+const CHAT_WEBHOOK_URL = "http://localhost:5678/webhook/e104e40e-6134-4825-a6f0-8a646d882662/chat";
 
 interface ChatResponse {
   reply?: string;
