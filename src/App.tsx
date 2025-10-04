@@ -7,6 +7,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Component14 from "./imports/Component14";
+import { ChatInterface } from "./components/ChatInterface";
 
 const queryClient = new QueryClient();
 
@@ -20,8 +21,8 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Component14 />} />
-            <Route path="/home" element={<Index />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="/home" element={<ChatInterface />} />
+            
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
