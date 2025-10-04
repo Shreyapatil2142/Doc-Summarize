@@ -1,9 +1,13 @@
 import { motion } from "framer-motion";
-import { Bot, Moon, Sun } from "lucide-react";
+import { Bot, Moon, Sun, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/components/ThemeProvider";
 
-export function ChatHeader() {
+interface ChatHeaderProps {
+  onDemoResponse?: () => void;
+}
+
+export function ChatHeader({ onDemoResponse }: ChatHeaderProps) {
   const { theme, toggleTheme } = useTheme();
 
   return (
@@ -22,12 +26,14 @@ export function ChatHeader() {
         </div>
       </div>
 
-      <Button
-        variant="ghost"
-        size="icon"
-        onClick={toggleTheme}
-        className="relative overflow-hidden hover:bg-muted/50 transition-all duration-300"
-      >
+      <div className="flex items-center gap-2">
+        
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={toggleTheme}
+          className="relative overflow-hidden hover:bg-muted/50 transition-all duration-300"
+        >
         <motion.div
           key={theme}
           initial={{ scale: 0, rotate: -180 }}
@@ -42,6 +48,7 @@ export function ChatHeader() {
           )}
         </motion.div>
       </Button>
+      </div>
     </motion.header>
   );
 }

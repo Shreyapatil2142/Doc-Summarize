@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Bot, User } from "lucide-react";
+import { FormattedMessage } from "./FormattedMessage";
 
 export interface Message {
   id: string;
@@ -18,14 +19,11 @@ export function ChatMessage({ message, index }: ChatMessageProps) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20, scale: 0.95 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
       transition={{
-        duration: 0.3,
-        delay: index * 0.1,
-        type: "spring",
-        stiffness: 200,
-        damping: 20,
+        duration: 0.15,
+        ease: "easeOut",
       }}
       className={`flex gap-3 ${isUser ? "flex-row-reverse" : "flex-row"} group`}
     >
@@ -46,26 +44,22 @@ export function ChatMessage({ message, index }: ChatMessageProps) {
 
       {/* Message Bubble */}
       <div
-        className={`relative max-w-[75%] lg:max-w-[60%] rounded-2xl p-4 shadow-sm border border-border ${
+        className={`relative max-w-[85%] lg:max-w-[70%] rounded-2xl p-4 shadow-sm border border-border ${
           isUser
             ? "bg-chat-user-bg text-chat-user-foreground rounded-tr-md"
             : "bg-chat-bot-bg text-chat-bot-foreground rounded-tl-md border-l-4 border-l-chat-bot-accent"
         }`}
       >
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 + index * 0.1 }}
-          className="text-sm leading-relaxed whitespace-pre-wrap break-words"
-        >
-          {message.content}
-        </motion.p>
+        {isUser ? (
+          <p className="text-sm leading-relaxed whitespace-pre-wrap break-words">
+            {message.content}
+          </p>
+        ) : (
+          <FormattedMessage content={message.content} />
+        )}
 
         {/* Timestamp */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4 + index * 0.1 }}
+        <div
           className={`text-xs mt-2 opacity-60 ${
             isUser ? "text-right" : "text-left"
           }`}
@@ -74,7 +68,7 @@ export function ChatMessage({ message, index }: ChatMessageProps) {
             hour: "2-digit",
             minute: "2-digit",
           })}
-        </motion.div>
+        </div>
       </div>
     </motion.div>
   );

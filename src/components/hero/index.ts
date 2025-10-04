@@ -3,8 +3,7 @@ export { Group995 } from './background/Group995';
 export { MaskGroup, Group46881 } from './background/MaskGroups';
 export { MaskGroup1, MaskGroup2, MaskGroup3 } from './background/BackgroundMasks';
 
-// Content Components  
-export { MainCta } from './content/MainCta';
+
 export { Content } from './content/Content';
 export { Logo } from './content/Logo';
 export { SignIn } from './content/SignIn';

@@ -3,9 +3,10 @@ import { motion } from "framer-motion";
 export function TypingIndicator() {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 10 }}
+      initial={{ opacity: 0, y: 5 }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -10 }}
+      exit={{ opacity: 0, y: -5 }}
+      transition={{ duration: 0.1 }}
       className="flex items-center gap-2 p-4 bg-chat-bot-bg rounded-2xl rounded-bl-md shadow-sm border border-border max-w-xs"
     >
       <div className="flex items-center gap-1">
@@ -18,9 +19,9 @@ export function TypingIndicator() {
               opacity: [0.5, 1, 0.5],
             }}
             transition={{
-              duration: 1.2,
+              duration: 0.8,
               repeat: Infinity,
-              delay: i * 0.2,
+              delay: i * 0.15,
             }}
           />
         ))}

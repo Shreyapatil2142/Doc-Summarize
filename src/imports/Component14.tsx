@@ -1,7 +1,4 @@
-import { Link } from "react-router-dom";
-import svgPaths from "./svg-1qh9v01azg";
-import imgArtwork from "../assets/chatbot.png";
-import { imgGroup995 } from "./svg-27tgh";
+
 // Import all components from the hero components directory
 import {
   Group46881,
@@ -38,8 +35,10 @@ const Component14 = () => {
       <Scroll />
       <Group46889 />
 
-      <Logo />
-      <SignIn />
+    
+        <Logo />
+        <SignIn />
+    
       <Group824 />
       <div className="w-full flex justify-around absolute top-1/4 ">
       <Content />

@@ -2,12 +2,14 @@ import svgPaths from "../../imports/svg-1qh9v01azg";
 
 export function Scroll() {
   return (
-    <div className="absolute h-[40px] bottom-14 w-[28px] animate-bounce" data-name="scroll" style={{ left: "calc(41.667% + 100.572px)" }}>
-      <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 37 55">
-        <g id="scroll">
-          <path d={svgPaths.p37c4f580} fill="var(--fill-0, #7650F5)" id="Union" />
-        </g>
-      </svg>
+    <div className="absolute flex items-center justify-center left-1/2 -translate-x-1/2 bottom-10 w-[37px] h-[55px]" data-name="Scroll">
+      <div className="absolute h-[40px] bottom-14 w-[28px] animate-bounce" data-name="scroll" >
+        <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 37 55">
+          <g id="scroll">
+            <path d={svgPaths.p37c4f580} fill="var(--fill-0, #7650F5)" id="Union" />
+          </g>
+        </svg>
+      </div>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChatMessage, type Message } from "./ChatMessage";
 import { TypingIndicator } from "./TypingIndicator";
@@ -11,13 +11,13 @@ interface ChatAreaProps {
 export function ChatArea({ messages, isTyping }: ChatAreaProps) {
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
+  const scrollToBottom = useCallback(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "auto" });
+  }, []);
 
   useEffect(() => {
     scrollToBottom();
-  }, [messages, isTyping]);
+  }, [messages, isTyping, scrollToBottom]);
 
   return (
     <div className="flex-1 overflow-hidden bg-gradient-to-br from-background via-background to-muted/20">
@@ -28,7 +28,7 @@ export function ChatArea({ messages, isTyping }: ChatAreaProps) {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
+              transition={{ delay: 0.2 }}
               className="text-center py-12 space-y-4"
             >
               <motion.div
@@ -37,7 +37,7 @@ export function ChatArea({ messages, isTyping }: ChatAreaProps) {
                   scale: [1, 1.05, 1] 
                 }}
                 transition={{ 
-                  duration: 4, 
+                  duration: 2.5, 
                   repeat: Infinity, 
                   ease: "easeInOut" 
                 }}

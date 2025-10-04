@@ -1,6 +1,7 @@
 import { useState, useCallback } from "react";
 import { type Message } from "@/components/ChatMessage";
 import { toast } from "@/hooks/use-toast";
+import { formatChatbotResponse, enhanceWorkEnvironmentResponse } from "@/utils/formatResponse";
 
 const CHAT_WEBHOOK_URL = "http://localhost:5678/webhook/e104e40e-6134-4825-a6f0-8a646d882662/chat";
 
@@ -8,8 +9,9 @@ interface ChatResponse {
   reply?: string;
   message?: string;
   response?: string;
+  output?: string;
   // Handle various possible response formats
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 export function useChat() {
@@ -39,6 +41,8 @@ export function useChat() {
           sessionId,
           chatInput: content,
         }),
+        // Add timeout for faster failure detection
+        signal: AbortSignal.timeout(30000), // 30 second timeout
       });
 
       if (!response.ok) {
@@ -48,7 +52,17 @@ export function useChat() {
       const data: ChatResponse = await response.json();
       
       // Try to extract bot reply from various possible response formats
-      const botReply = data.reply || data.output || data.message || data.response || JSON.stringify(data);
+      let botReply = (data.reply || data.output || data.message || data.response || JSON.stringify(data)) as string;
+      
+      // Format the response for better readability
+      botReply = formatChatbotResponse(botReply);
+      
+      // Apply specific formatting for work environment responses
+      if (botReply.toLowerCase().includes('work environment') || 
+          botReply.toLowerCase().includes('safety') || 
+          botReply.toLowerCase().includes('health')) {
+        botReply = enhanceWorkEnvironmentResponse(botReply);
+      }
       
       const botMessage: Message = {
         id: `msg_${Date.now()}_bot`,
@@ -92,5 +106,6 @@ export function useChat() {
     sendMessage,
     clearChat,
     sessionId,
+    setMessages,
   };
 }
