@@ -1,6 +1,7 @@
 import svgPaths from "./svg-o79ghk2eb5";
 import imgArtwork from "figma:asset/6435a5512b32c7766ecccfe66de9468b05a39d84.png";
 import { imgGroup995 } from "./svg-acmr6";
+import { Link } from "react-router-dom";
 
 function Group995() {
   return (
@@ -369,7 +370,9 @@ function MainCta() {
   return (
     <div className="absolute bg-[#6750f5] box-border content-stretch flex gap-[10px] items-start left-[91px] px-[21px] py-[13px] rounded-[40px] shadow-[0px_6px_12px_0px_rgba(103,80,245,0.3)] top-[543px] w-[368px]" data-name="Main CTA">
       <div className="font-['Source_Sans_Pro:Bold',_sans-serif] leading-[0] not-italic relative shrink-0 text-[24px] text-center text-white tracking-[-0.72px] w-[326px]">
-        <p className="leading-[1.587]">Explore Chat BOT</p>
+      <Link to="/home" className="leading-[1.587]">
+          Explore Chat BOT
+        </Link>
       </div>
     </div>
   );
