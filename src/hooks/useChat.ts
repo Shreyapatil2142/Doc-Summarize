@@ -42,7 +42,7 @@ export function useChat() {
           chatInput: content,
         }),
         // Add timeout for faster failure detection
-        signal: AbortSignal.timeout(30000), // 30 second timeout
+        signal: AbortSignal.timeout(60000), // 30 second timeout
       });
 
       if (!response.ok) {
